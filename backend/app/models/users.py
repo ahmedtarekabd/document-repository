@@ -12,7 +12,7 @@ class UserBase(SQLModel):
 class User(UserBase, table=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True, index=True)
     hashed_password: str
-    created_at: str = Field(default_factory=datetime.now(timezone.utc))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 # Data Transfer Objects (DTOs)
 # Some DTOs are inspired by Fullstack Fastapi Template: https://github.com/fastapi/full-stack-fastapi-template/blob/master/backend/app/models.py

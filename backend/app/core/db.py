@@ -4,9 +4,8 @@
 from typing import Annotated
 
 from fastapi import Depends
-from sqlmodel import Session, create_engine, select
+from sqlmodel import Session, create_engine
 
-from app import crud
 from app.core.config import settings
 
 
@@ -30,7 +29,7 @@ def init_db(session: Session) -> None:
     # But if you don't want to use migrations, create
     # the tables uncommenting the next line
     # after importing all modules that define models in main.py
-    # create_db_and_tables()
+    create_db_and_tables()
     pass
 
 

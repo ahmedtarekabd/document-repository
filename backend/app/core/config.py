@@ -30,12 +30,13 @@ def parse_cors(v: Any) -> list[str] | str:
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file="../.env",
         env_ignore_empty=True,
         extra="ignore",
     )
     
     API_V1_STR: str = "/api/v1"
+    PROJECT_NAME: str = "Document Repository"
     
     # JWT
     ALGORITHM: str = "HS256"
@@ -86,7 +87,7 @@ class Settings(BaseSettings):
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> PostgresDsn:
         return MultiHostUrl.build(
-            scheme="postgresql+psycopg",
+            scheme="postgresql", # +psycopg
             username=self.POSTGRES_USER,
             password=self.POSTGRES_PASSWORD,
             host=self.POSTGRES_SERVER,
