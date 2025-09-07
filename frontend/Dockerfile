@@ -15,10 +15,10 @@ RUN npm install
 # Copy application code
 COPY . .
 
-# Create non-root user - for security
-RUN adduser --disabled-password --gecos '' appuser
-RUN chown -R appuser:appuser /app
-USER appuser
+# # Create non-root user - for security
+# RUN adduser --disabled-password --gecos '' appuser
+# RUN chown -R appuser:appuser /app
+# USER appuser
 
 # Expose port
 EXPOSE 3000

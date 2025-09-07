@@ -52,6 +52,8 @@ services:
     container_name: doc_repo_backend
     environment:
       FRONTEND_HOST: ${FRONTEND_HOST}
+      VITE_BE_BASE_URL: http://backend:8000/api/
+      VITE_BE_VERSION: ${API_VERSION}
       POSTGRES_SERVER: postgres
       POSTGRES_PORT: 5432
       POSTGRES_DB: ${POSTGRES_DB}
@@ -79,14 +81,14 @@ services:
     command: ["fastapi", "dev", "app/main.py", "--host", "0.0.0.0", "--port", "8000"]
     develop:
       watch:
+          # local path (relative to the compose file) to watch and sync into the container
         - path: ./backend
           action: sync
           target: backend
-          # local path (relative to the compose file) to watch and sync into the container
+          # container path to watch; tooling can translate local -> container paths
         - path: /app
           action: sync
           target: backend
-          # container path to watch; tooling can translate local -> container paths
           ignore:
             - /app/__pycache__
             - /app/.pytest_cache
@@ -111,9 +113,9 @@ services:
     command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]
     develop:
       watch:
+          # local path to watch for frontend changes
         - path: ./frontend
           action: sync
-          # local path to watch for frontend changes
           target: frontend
         - path: /app
           action: sync
