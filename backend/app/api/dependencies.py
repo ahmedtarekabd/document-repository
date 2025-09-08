@@ -11,8 +11,7 @@ from sqlmodel import Session, select
 
 from app.core.config import settings
 from app.core.security import verify_password
-from app.models.users import User
-from app.models.auth import TokenData
+from app.models import User, TokenData
 from app.core.db import SessionDep
 
 

@@ -6,9 +6,9 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 
 from app.api.dependencies import get_user, authenticate_user, create_access_token, current_user_dep
-from app.models.users import User, UserCreate, UserRead
+from app.models import User, UserCreate, UserRead
 from app.core.config import settings
-from app.models.auth import Token
+from app.models import Token
 from app.core.db import SessionDep
 from app.core.security import get_password_hash
 
