@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -37,10 +37,10 @@ export default function HomePage() {
             </p>
             <div className='flex justify-center gap-4'>
               <Button asChild size='lg'>
-                <Link to='/auth/login'>Sign In</Link>
+                <Link to='/login'>Sign In</Link>
               </Button>
               <Button asChild variant='outline' size='lg'>
-                <Link to='/auth/signup'>Sign Up</Link>
+                <Link to='/signup'>Sign Up</Link>
               </Button>
             </div>
           </div>

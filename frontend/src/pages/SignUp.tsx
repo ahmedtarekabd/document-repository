@@ -17,12 +17,13 @@ const SignUp = () => {
     return
   }
   return (
-    <div className='flex h-screen-no-nav items-center justify-center'>
-      <Card className='flex flex-col items-center justify-center gap-2 shadow-md'>
+    <div className='flex h-screen items-center justify-center'>
+      <Card className='w-full max-w-sm shadow-md'>
         <CardHeader className='space-y-4'>
           <CardTitle className='text-lg font-bold'>Sign-up</CardTitle>
           <CardDescription>
-            Sign-up to Document Repository to start coding with your friends in real-time.
+            Sign-up to Document Repository to start coding with your friends in
+            real-time.
           </CardDescription>
         </CardHeader>
         <CardContent className='w-full'>
